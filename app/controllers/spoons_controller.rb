@@ -1,0 +1,2 @@
+class SpoonsController < ApplicationController
+end
