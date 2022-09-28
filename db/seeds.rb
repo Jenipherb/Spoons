@@ -1,7 +1,5 @@
 puts "Seeding Data ...."
-User.destroy_all
-Task.destroy_all
-Spoon.destroy_all
+
 
 def random_user
     User.all.sample.id
