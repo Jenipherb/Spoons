@@ -1,10 +1,25 @@
+import Task from "./Task"
+import { useEffect, useState } from "react"
 
 
 
 
-function TaskList(user){
+function TaskList( {user} ){
+
+    const [task, setTasks] = useState([])
+
+    useEffect(("/tasks").then((r) => {
+        if (r.ok){
+            r.json().then((data) => {
+                setTasks(data)
+            })
+        }
+    }))
+
     return(
-        <div></div>
+        <div>
+            <Task key={task.id} task={task} user_id={user.id}/>
+        </div>
     )
 }
 

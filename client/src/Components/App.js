@@ -3,6 +3,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Landing from "./Landing"
 import Home from "./Home";
+import TaskList from "./TaskList";
 
 
 
@@ -11,9 +12,9 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
-  const [categoryName, setCategoryName] = useState("")
+ 
   
-  console.log(setCategoryName)
+  
   const navigate = useNavigate();
 
   const onLogin = () => {
@@ -49,12 +50,13 @@ function App() {
        <Navbar
        user={user}
        handleLogout={handleLogout}
-       setCategoryName={setCategoryName}
+      
      /> 
       ) :null}
       <Routes>
         <Route exact path="/" element={<Landing onLogin={onLogin} />} />
         <Route exact path="/home" element={<Home user={user}/>}/>
+        <Route path="/view-task" element={<TaskList user={user}  />}/>
       </Routes>
     </div>
   );

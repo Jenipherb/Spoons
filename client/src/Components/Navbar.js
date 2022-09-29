@@ -1,7 +1,7 @@
+import { Container} from 'react-bootstrap'
 
 
-
-function Navbar(){
+function Navbar( {user, handleLogout, setSpoonAmount} ){
     return(
         <div>
             <Navbar bg="light" expand="lg">
