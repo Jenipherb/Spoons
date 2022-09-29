@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Container } from 'react-bootstrap'
 
 
-function SignUp(Login){
+function SignUp(onLogin){
 
     const [email, setEmail] = useState ("")
     const [username, setUsername] =useState ("")
@@ -12,13 +12,27 @@ function SignUp(Login){
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch()
+        fetch("/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: username,
+                email: email,
+                password: password,
+                password_confirmation: passwordConfirmation
+            }),
+        })
+            .then((r) => r.json())
+            .then(onLogin)
     }
 
 
     return(
         <div>
-            <Form>
+            <Container>
+            <Form >
                 <Form.Group className="mb-3"
                 controlId="formBasicEmail">
                     <Form.Label>Email Address</Form.Label>
@@ -43,19 +57,17 @@ function SignUp(Login){
                     <Form.Control type="password" placeholder="Password" 
                     id="id" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                </Form.Group>
+
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                      <Form.Label> Confirm Password</Form.Label>
-                    <Form.Control type="confirm password" placeholder="Confirm Password" 
+                    <Form.Control type="password" placeholder="Confirm Password" 
                     id="password_confirm" value={passwordConfirmation} onChange={(e)=> setPasswordConfirmation(e.target.value)}/>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onSubmit={handleSubmit}>
                     Submit
                 </Button>
             </Form>
+            </Container>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Landing from "./Landing"
+import Home from "./Home";
 
 
 
@@ -53,6 +54,7 @@ function App() {
       ) :null}
       <Routes>
         <Route exact path="/" element={<Landing onLogin={onLogin} />} />
+        <Route exact path="/home" element={<Home user={user}/>}/>
       </Routes>
     </div>
   );
