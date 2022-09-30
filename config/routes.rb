@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/hello', to: 'application#hello_world'
   get '/me', to: 'users#show'
   get 'me/tasks', to: 'user#show_tasks'
+  post 'task/task_added', to: 'users#create_tast'
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
