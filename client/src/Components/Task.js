@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Form, Col, Row, Button } from 'react-bootstrap'
 
 function Task( {task, user_id}){
 
@@ -32,7 +33,41 @@ function Task( {task, user_id}){
     }
 
     return(
-        <div></div>
+        <div>
+            <Form onSubmit={handleSubmit}>
+                <Row className="mb-3">
+                    <Form.Group as={Col}>
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control type="title" placeholder="ex. laundry" value={title}
+                        onChange={(e) => setTitle(e.target.value)}/>
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label>Due</Form.Label>
+                        <Form.Control type="due" placeholder="ex. 3 days" 
+                        onChange={(e) => setDue(e.target.value)}/>
+                    </Form.Group>
+                </Row>
+
+                <Row>
+                    <Form.Group as={Col}>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="description" placeholder="ex. Get all laundry done"
+                        onChange={(e) => setDescription(e.target.value)}/>
+                    </Form.Group>
+                </Row>
+
+                <Row>
+                    <Form.Group as={Col}>
+                        <Form.Label>Priority</Form.Label>
+                        <Form.Control type="priority" placeholder="Low, Medium, High"
+                        onChange={(e) => setPriority(e.target.value)}/>
+                    </Form.Group>
+                </Row>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
+        </div>
     )
 }
 
