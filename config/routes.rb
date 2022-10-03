@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/hello', to: 'application#hello_world'
   get '/me', to: 'users#show'
-  get 'me/tasks', to: 'user#show_tasks'
+  get 'me/tasks', to: 'users#show_tasks'
   post 'task/task_added', to: 'users#create_tast'
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
