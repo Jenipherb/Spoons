@@ -4,7 +4,7 @@ import TaskList from "./TaskList"
 function Home(user){
     return(
         <div>
-            <h2>Home Page</h2>
+            <h2>Spoon Full of Sugar</h2>
             <TaskList user={user}/>
         </div>
     )

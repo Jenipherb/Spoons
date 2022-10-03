@@ -4,6 +4,9 @@ import Navbar from "./Navbar";
 import Landing from "./Landing"
 import Home from "./Home";
 import TaskList from "./TaskList";
+import SignUp from "./SignUp";
+import Login from "./Login";
+import Task from "./Task"
 
 
 
@@ -48,15 +51,17 @@ function App() {
     <div className="App">
       {loggedIn ? (
        <Navbar
-       user={user}
-       handleLogout={handleLogout}
-      
-     /> 
+          user={user}
+          handleLogout={handleLogout}
+        /> 
       ) :null}
       <Routes>
-        <Route exact path="/" element={<Landing onLogin={onLogin} />} />
+        <Route exact path="/" element={<Landing onLogin={onLogin} />} /> 
         <Route exact path="/home" element={<Home user={user}/>}/>
-        <Route path="/view-task" element={<TaskList user={user}  />}/>
+        <Route path="/task-added" element={<Task user={user}/>}/>
+        <Route path="/view-task" element={<TaskList user={user}/>}/>
+        <Route path="/login" element={<Login onLogin={onLogin}/>}/>
+        <Route path="/signup" element={<SignUp onLogin={onLogin}/>}/>
       </Routes>
     </div>
   );

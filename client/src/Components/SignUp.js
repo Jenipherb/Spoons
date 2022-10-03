@@ -2,7 +2,8 @@ import { useState } from "react"
 import { Form, Button, Container } from 'react-bootstrap'
 
 
-function SignUp(onLogin){
+function SignUp( {onLogin} ){
+   
 
     const [email, setEmail] = useState ("")
     const [username, setUsername] =useState ("")
@@ -32,12 +33,12 @@ function SignUp(onLogin){
     return(
         <div>
             <Container>
-            <Form >
+            <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3"
-                controlId="formBasicEmail">
+                controlId="email">
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email"
-                    id="email"
+                    // id="email"
                     value={email}
                     onChange={(e)=> setEmail(e.target.value)}/>
                     <Form.Text className="text-muted">
@@ -45,25 +46,28 @@ function SignUp(onLogin){
                     </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3"
-                controlId="formBasicEmail">
+                controlId="username">
                     <Form.Label>Username</Form.Label>
                     <Form.Control type="username" placeholder="Username"
-                    id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    // id="username"
+                     value={username} onChange={(e) => setUsername(e.target.value)}/>
                     <Form.Text className="text-muted">
                     </Form.Text>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3" controlId="id">
                      <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" 
-                    id="id" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    // id="id" 
+                    value={password} onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3" controlId="password_confirm">
                      <Form.Label> Confirm Password</Form.Label>
                     <Form.Control type="password" placeholder="Confirm Password" 
-                    id="password_confirm" value={passwordConfirmation} onChange={(e)=> setPasswordConfirmation(e.target.value)}/>
+                    // id="password_confirm" 
+                    value={passwordConfirmation} onChange={(e)=> setPasswordConfirmation(e.target.value)}/>
                 </Form.Group>
-                <Button variant="primary" type="submit" onSubmit={handleSubmit}>
+                <Button variant="primary" type="submit">
                     Submit
                 </Button>
             </Form>

@@ -1,8 +1,9 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { Form, Button, Container } from 'react-bootstrap'
 
 
-function Login(onLogin){
+function Login( {onLogin} ){
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -17,7 +18,7 @@ function Login(onLogin){
             body: JSON.stringify({ username, password }),
         })
             .then((r) => r.json())
-            .then((user) => onLogin(user))
+            .then(onLogin())
     }
     
     return(
@@ -36,9 +37,11 @@ function Login(onLogin){
                         <Form.Control type="password" placeholder="Password"
                         value={password} onChange={(e) => setPassword(e.target.value)}/>
                     </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
+                    <Link to="/home" onClick={() => setTimeout(500)}>
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </Link>
                 </Form>
             </Container>
         </div>
