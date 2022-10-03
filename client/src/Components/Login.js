@@ -4,7 +4,7 @@ import { Form, Button, Container } from 'react-bootstrap'
 
 function Login(onLogin){
 
-    const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
     function handleSubmit(e) {
@@ -14,7 +14,7 @@ function Login(onLogin){
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ username, password }),
         })
             .then((r) => r.json())
             .then((user) => onLogin(user))
@@ -27,7 +27,7 @@ function Login(onLogin){
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Username</Form.Label>
                         <Form.Control type="username" placeholder="Enter Username"
-                        value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        value={username} onChange={(e) => setUsername(e.target.value)}/>
                         <Form.Text className="text-muted">
                         </Form.Text>
                     </Form.Group>

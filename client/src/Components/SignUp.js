@@ -46,7 +46,7 @@ function SignUp(onLogin){
                 </Form.Group>
                 <Form.Group className="mb-3"
                 controlId="formBasicEmail">
-                    <Form.Label>User Name</Form.Label>
+                    <Form.Label>Username</Form.Label>
                     <Form.Control type="username" placeholder="Username"
                     id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
                     <Form.Text className="text-muted">
