@@ -8,13 +8,16 @@ function TaskList( {user} ){
 
     const [task, setTasks] = useState([])
 
-    useEffect(("/tasks").then((r) => {
+    useEffect(() => {
+        fetch("/tasks").then((r) => {
         if (r.ok){
             r.json().then((data) => {
                 setTasks(data)
             })
+        } else {
+            throw new Error("Unable to retrieve latest task")
         }
-    }))
+    })})
 
     return(
         <div>

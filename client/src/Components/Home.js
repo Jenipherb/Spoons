@@ -1,11 +1,14 @@
 import TaskList from "./TaskList"
+import { Card } from 'react-bootstrap'
 
 
 function Home(user){
     return(
         <div>
-            <h2>Spoon Full of Sugar</h2>
-            <TaskList user={user}/>
+            <Card>
+                <Card.Header as="h-5">Task</Card.Header>
+                <TaskList user={user}/>
+            </Card>
         </div>
     )
 }
