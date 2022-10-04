@@ -17,7 +17,8 @@ function TaskList( {user} ){
         } else {
             throw new Error("Unable to retrieve latest task")
         }
-    })})
+    })
+}, [])
 
     return(
         <div>

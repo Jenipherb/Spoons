@@ -6,8 +6,7 @@ function Landing(onLogin){
         <div className="text-center">
             <h2>Spoon Full of Sugar</h2>
             <Login onLogin={onLogin}/>
-            or
-            <SignUp onLogin={onLogin} />
+            {/* <SignUp onLogin={onLogin} /> */}
         </div>
     )
 }

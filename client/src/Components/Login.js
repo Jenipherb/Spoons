@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Form, Button, Container } from 'react-bootstrap'
+import SignUp from "./SignUp"
+import { DEFAULT_BREAKPOINTS } from "react-bootstrap/esm/ThemeProvider"
 
 
 function Login( {onLogin} ){
@@ -39,11 +41,21 @@ function Login( {onLogin} ){
                     </Form.Group>
                     <Link to="/home" onClick={() => setTimeout(500)}>
                         <Button variant="primary" type="submit">
-                            Submit
+                            Submit 
                         </Button>
-                    </Link>
-                </Form>
+                    </Link>    
+                </Form>     
             </Container>
+                <span>
+                    or   
+                <Link to="/signup" onClick={() => setTimeout(500)}>
+                    <br/>
+                    <Button variant="primary" type="submit">
+                        SignUp
+                    </Button>
+                    <br/>      
+                </Link>
+                </span>
         </div>
     )
 }
