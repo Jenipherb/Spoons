@@ -1,4 +1,4 @@
-import Spoons from "./Spoons"
+import TaskList from "./TaskList"
 import { Card } from 'react-bootstrap'
 
 
@@ -6,8 +6,8 @@ function Home(user){
     return(
         <div>
             <Card>
-                <Card.Header as="h-5">Spoons</Card.Header>
-                <Spoons user={user}/>
+                <Card.Header as="h-5"> Your Spoons</Card.Header>
+                <TaskList user={user}/>
             </Card>
         </div>
     )

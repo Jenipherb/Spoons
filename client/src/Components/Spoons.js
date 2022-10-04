@@ -4,7 +4,9 @@ import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
 
 
-function Spoons( {user}){
+function Spoons( {user, tasks}){
+    console.log(tasks)
+    console.log(user)
 
     const [spoon, setSpoon] = useState([])
 
@@ -21,6 +23,7 @@ function Spoons( {user}){
     }, [])
     return(
         <div>
+            
             <Link to="/task-added">
                 <Button type="submit">
                     Add Task
