@@ -14,13 +14,13 @@ function Task( {task, user_id}){
     fetch("task_added", {
         method: "POST",
         headers: {
-            "Content-Type": "application-json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            title:title,
-            description: description,
+            title: title,
             priority: priority,
-            due: due    
+            due: due,
+            description: description    
         }),
     })  
         .then((r) => r.json())
