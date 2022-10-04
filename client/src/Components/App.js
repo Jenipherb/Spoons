@@ -7,6 +7,7 @@ import TaskList from "./TaskList";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import Task from "./Task"
+import Spoons from "./Spoons";
 
 
 
@@ -58,6 +59,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landing onLogin={onLogin} />} /> 
         <Route exact path="/home" element={<Home user={user}/>}/>
+        <Route path="/spoons" element={<Spoons user={user}/>}/>
         <Route path="/task-added" element={<Task user={user}/>}/>
         <Route path="/view-task" element={<TaskList user={user}/>}/>
         <Route path="/login" element={<Login onLogin={onLogin}/>}/>

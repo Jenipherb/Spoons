@@ -27,6 +27,6 @@ class SpoonsController < ApplicationController
     private
 
     def spoon_params
-        params.require(:spoon, :user_id. :task_id)
+        params.require(:spoon, :user_id, :task_id)
     end
 end

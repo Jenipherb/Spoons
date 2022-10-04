@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Form, Button, Container } from 'react-bootstrap'
-import SignUp from "./SignUp"
-import { DEFAULT_BREAKPOINTS } from "react-bootstrap/esm/ThemeProvider"
+
 
 
 function Login( {onLogin} ){
