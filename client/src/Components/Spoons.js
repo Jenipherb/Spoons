@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react"
-
+import YourSpoon from "./YourSpoon"
 import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
 
 
 function Spoons( {user, tasks}){
     console.log(tasks)
-    console.log(user)
+    
 
     const [spoon, setSpoon] = useState([])
 
     useEffect(() => {
-        fetch("/spoons").then((r) => {
+        fetch("/me/spoons").then((r) => {
             if (r.ok){
                 r.json().then((data) => {
                     setSpoon(data)
@@ -21,14 +21,12 @@ function Spoons( {user, tasks}){
             }
         })
     }, [])
+
+    
     return(
         <div>
+            <YourSpoon user={user} tasks={tasks} spoons={spoon}/> 
             
-            <Link to="/task-added">
-                <Button type="submit">
-                    Add Task
-                </Button>
-            </Link>
         </div>
     )
 }

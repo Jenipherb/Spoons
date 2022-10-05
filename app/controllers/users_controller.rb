@@ -9,6 +9,11 @@ class UsersController < ApplicationController
        render json: @current_user
     end
 
+    def show_tasks_spoons
+        render json: @current_user.tasks.map(&:spoon)
+    end
+
+
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id

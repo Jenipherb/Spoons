@@ -1,4 +1,4 @@
-import TaskList from "./TaskList"
+import YourSpoon from './YourSpoon'
 import { Card } from 'react-bootstrap'
 
 
@@ -7,7 +7,7 @@ function Home(user){
         <div>
             <Card>
                 <Card.Header as="h-5"> Your Spoons</Card.Header>
-                <TaskList user={user}/>
+                <YourSpoon user={user}/>
             </Card>
         </div>
     )

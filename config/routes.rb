@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/hello', to: 'application#hello_world'
   get '/me', to: 'users#show'
-  get 'me/tasks', to: 'tasks#show_tasks'
-  get '/tasks/spoons/:id', to: 'task#show_spoons'
+  get 'me/tasks_spoons', to: 'users#show_tasks_spoons'
   post '/task_added', to: 'tasks#create'
+  post '/spoon_added', to: "spoons#create"
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
