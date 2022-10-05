@@ -6,7 +6,7 @@ class TasksController < ApplicationController
 
     def show
         task = find_task
-        render json: task 
+        render json: task
     end
 
     def create

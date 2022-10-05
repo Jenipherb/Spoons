@@ -61,6 +61,7 @@ function App() {
         <Route exact path="/" element={<Landing onLogin={onLogin} />} /> 
         <Route exact path="/home" element={<Home user={user}/>}/>
         <Route path="/task-added" element={<Task user={user}/>}/>
+        <Route path="/tasks" element={<TaskList user={user}/>}/>
         <Route path="/view-spoon" element={<YourSpoon user={user}/>}/>
         <Route path="/login" element={<Login onLogin={onLogin}/>}/>
         <Route path="/signup" element={<SignUp onLogin={onLogin}/>}/>

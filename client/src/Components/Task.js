@@ -7,7 +7,7 @@ function Task( {task, user_id}){
     const [description, setDescription] = useState("")
     const [priority, setPriority] = useState("")
     const [due, setDue] = useState("")
-    const [spoon, setSpoon] = useState("")
+    
 
     function handleSubmit(e){
         e.preventDefault()
@@ -32,20 +32,7 @@ function Task( {task, user_id}){
             setDue("")
         })
 
-        fetch("spoon_added", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                spoon: spoon
-            }),
-        })
-            .then((r) => r.json())
-            .then((spoon) => {
-                setSpoon("")
-            })
-    }
+    }   
 
     return(
         <div>
@@ -77,11 +64,7 @@ function Task( {task, user_id}){
                         <Form.Control type="priority" placeholder="Low, Medium, High"
                         onChange={(e) => setPriority(e.target.value)}/>
                     </Form.Group>
-                    <Form.Group as={Col}>
-                        <Form.Label>Spoons</Form.Label>
-                        <Form.Control type="Spoons" placeholder=" ex. 3 spoons"
-                        onChange={(e) => setSpoon(e.target.value)}/>
-                    </Form.Group>
+                 
                 </Row>
                 <Button variant="primary" type="submit">
                     Submit

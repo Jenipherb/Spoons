@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
 
 
+
 function YourSpoon( { user }){
     
     const [spoons, setSpoons] = useState([])
@@ -17,17 +18,19 @@ function YourSpoon( { user }){
     }, [])
     
     
-    console.log(user)
-    console.log(spoons)
+   
     
 
 
-
-    return spoons.length > 0 ?(
-        spoons.map((task) => <Task key={task.id} task={task} user_id={user.id} />)
-    ) : (
+    return(
+   
         <div>
-            <h2>Nothing to Display</h2>
+            <h2>No Assigned Spoons, see Tasks below</h2>
+            <Link to="/tasks">
+                <Button type="submit">
+                    View Tasks
+                </Button>
+            </Link>
             <Link to="/task-added">
                 <Button type="submit">
                     Add Task

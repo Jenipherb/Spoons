@@ -9,7 +9,10 @@ class SpoonsController < ApplicationController
     end
 
     def create
-        render json: Spoon.create!(spoon_params)
+        @spoons = Spoon.new spoons_params
+        @spoons.user = @current_user
+        @spoons.save
+        render json: @spoons
     end
 
     def update 
@@ -26,7 +29,7 @@ class SpoonsController < ApplicationController
 
     private
 
-    def spoon_params
-        params.require(:spoon)
+    def spoons_params
+        params.permit(:spoon, :task_id)
     end
 end
