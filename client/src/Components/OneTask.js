@@ -1,5 +1,7 @@
 import { useState } from "react"
-import { Card, Form } from "react-bootstrap"
+import { Card, Form, Button, Stack } from "react-bootstrap"
+import { Link } from "react-router-dom"
+
 
 
 
@@ -33,6 +35,8 @@ function OneTask ( {task, user_id}) {
 
     return(
         <div>
+            
+            
             <Card style={{ width: '18rem' }} >
                 <Card.Title key={user_id}>{task.title}</Card.Title>
                 <Card.Text key={user_id}>Description: {task.description}</Card.Text>
@@ -43,9 +47,11 @@ function OneTask ( {task, user_id}) {
                         <Form.Label>How Many Spoons will this task take?</Form.Label>
                         <Form.Control type="spoons" placeholder=" ex. 3 spoons"
                         onChange={(e) => setSpoon(e.target.value)}/>
-                    </Form.Group>
+                </Form.Group>
+                
                 </Form>
             </Card>
+ 
         </div>
     )
 }

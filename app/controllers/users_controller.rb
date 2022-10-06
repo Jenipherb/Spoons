@@ -9,12 +9,12 @@ class UsersController < ApplicationController
        render json: @current_user
     end
 
-    def show_tasks
-        render json: @current_user.tasks
-    end
+    # def show_tasks
+    #     render json: @current_user.tasks
+    # end
 
     def show_tasks_spoons
-        render json: @current_user.tasks.map(&:spoon)
+        render json: @current_user
     end
 
 

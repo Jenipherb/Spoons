@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react"
-import Spoons from "./Spoons"
-import Task from "./Task"
 import { Link } from "react-router-dom"
 import { Button } from "react-bootstrap"
+import SpoonOfTask from "./SpoonOfTask"
 
 
 
@@ -11,11 +10,7 @@ function YourSpoon( { user }){
     const [spoons, setSpoons] = useState([])
         
     
-    useEffect(() => {
-        fetch("me/tasks_spoons")
-        .then((r) => r.json())
-        .then((data) => setSpoons(data))
-    }, [])
+    
     
     
    
@@ -25,7 +20,6 @@ function YourSpoon( { user }){
     return(
    
         <div>
-            <h2>No Assigned Spoons, see Tasks below</h2>
             <Link to="/tasks">
                 <Button type="submit">
                     View Tasks
@@ -36,6 +30,7 @@ function YourSpoon( { user }){
                     Add Task
                 </Button>
             </Link>
+            <SpoonOfTask task={user.tasks} spoons={user.spoons} />
         </div>    
     )
 }

@@ -22,49 +22,36 @@ function App() {
   
   const navigate = useNavigate();
 
-  const onLogin = () => {
-    fetch("/me")
-      .then((r) => {
-        if (r.ok) {
-          return r.json();
-        } else {
-          throw new Error("Not logged in");
-        }
-      })
-      .then((data) => setUser(data))
-      .then(() => setLoggedIn(true));
-  };
-
-  const handleLogout = () => {
-    fetch("/logout", { method: "DELETE" }).then(() => {
-      setUser({});
-      setLoggedIn(false);
-    });
-  };
-
   useEffect(() => {
-    loggedIn ? goToHomePage() : goToLandingPage();
-  }, [loggedIn]);
+    fetch("/me/tasks_spoons").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+  
 
-  const goToHomePage = () => navigate("/home");
-  const goToLandingPage = () => navigate("/");
+  function handleLogin(user){
+    setUser(user)
+  }
+
+  function handleLogout(){
+    setUser(null)
+  }
+
+
 
   return (
     <div className="App">
-      {loggedIn ? (
-       <Navbar
-          user={user}
-          handleLogout={handleLogout}
-        /> 
-      ) :null}
+      
       <Routes>
-        <Route exact path="/" element={<Landing onLogin={onLogin} />} /> 
-        <Route exact path="/home" element={<Home user={user}/>}/>
+        <Route exact path="/" element={<Landing onLogin={handleLogin} />} /> 
+        <Route exact path="/home" element={<Home user={user} onLogout={handleLogout}/>}/>
         <Route path="/task-added" element={<Task user={user}/>}/>
         <Route path="/tasks" element={<TaskList user={user}/>}/>
         <Route path="/view-spoon" element={<YourSpoon user={user}/>}/>
-        <Route path="/login" element={<Login onLogin={onLogin}/>}/>
-        <Route path="/signup" element={<SignUp onLogin={onLogin}/>}/>
+        <Route path="/login" element={<Login onLogin={handleLogin}/>}/>
+        <Route path="/signup" element={<SignUp onLogin={handleLogin}/>}/>
       </Routes>
     </div>
   );

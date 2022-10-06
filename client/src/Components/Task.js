@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { Form, Col, Row, Button } from 'react-bootstrap'
 
-function Task( {task, user_id}){
+function Task( { user }){
+    console.log(user)
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
@@ -12,7 +13,7 @@ function Task( {task, user_id}){
     function handleSubmit(e){
         e.preventDefault()
     
-    fetch("task_added", {
+    fetch("/task_added", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -21,11 +22,11 @@ function Task( {task, user_id}){
             title: title,
             priority: priority,
             due: due,
-            description: description    
+            description: description,  
         }),
     })  
         .then((r) => r.json())
-        .then((task) => {
+        .then(() => {
             setTitle("")
             setDescription("")
             setPriority("")
@@ -36,7 +37,7 @@ function Task( {task, user_id}){
 
     return(
         <div>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} user_id={user.id}>
                 <Row className="mb-3">
                     <Form.Group as={Col}>
                         <Form.Label>Title</Form.Label>

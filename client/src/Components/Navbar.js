@@ -1,21 +1,14 @@
-import { Button, Nav } from 'react-bootstrap'
+import { Dropdown, DropdownButton } from 'react-bootstrap'
 
 
 function Navbar( {user, handleLogout} ){
     return(
         <div>
-          <Nav variant="pills" defaultActiveKey="/me">
-            <Nav.Item>
-              <Navbar.Link href="/home">Spoon Full of Sugar</Navbar.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="/task-added">New Task</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="/profile">Profile</Nav.Link>  
-            </Nav.Item>  
-            <Button onClick={handleLogout}> </Button>
-          </Nav>
+           <DropdownButton id="dropdown-item-button" title="Dropdown button">
+            <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
+            <Dropdown.Item as="button"href='/home'>Home</Dropdown.Item>
+            <Dropdown.Item as="button" onClick={handleLogout}>Logout</Dropdown.Item>
+          </DropdownButton>
         </div>
     )
 }

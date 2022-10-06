@@ -1,17 +1,22 @@
 import YourSpoon from './YourSpoon'
 import { Card } from 'react-bootstrap'
+import Navbar from './Navbar'
+import SpoonOfTask from './SpoonOfTask'
 
 
 
 function Home( {user} ){
+    console.log(user)
+    console.log(user.tasks)
 
   
     return(
         <div>
-            <Card>
-                <Card.Header as="h-5"> Your Spoons</Card.Header>
+            <h2>Hi {user.username}!</h2>
+        
                 <YourSpoon user={user}/>
-            </Card>
+                <SpoonOfTask user={user}/>
+           
         </div>
     )
 }
