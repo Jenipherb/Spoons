@@ -1,21 +1,37 @@
 import YourSpoon from './YourSpoon'
-import { Card } from 'react-bootstrap'
+import { Card, CardGroup } from 'react-bootstrap'
 import Navbar from './Navbar'
 import SpoonOfTask from './SpoonOfTask'
+import { useEffect, useState} from "react"
 
 
 
-function Home( {user} ){
-    console.log(user)
-    console.log(user.tasks)
+function Home( {username, onLogout} ){
+    console.log(username)
+    
 
+    const [tasks, setTasks] = useState([])
+    
+    
+    useEffect(() => {
+        fetch("/tasks")
+        .then((r) => r.json())
+        .then((data) => setTasks(data))
+       }, [])
+
+ 
+   
+
+     
   
     return(
         <div>
-            <h2>Hi {user.username}!</h2>
+            <h2>Hi {username}!</h2>
         
-                <YourSpoon user={user}/>
-                <SpoonOfTask user={user}/>
+                <YourSpoon />
+                <span>
+                <SpoonOfTask tasks={tasks} />
+                </span>
            
         </div>
     )

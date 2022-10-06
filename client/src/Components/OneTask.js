@@ -35,8 +35,9 @@ function OneTask ( {task, user_id}) {
 
     return(
         <div>
-            
-            
+        
+    
+         
             <Card style={{ width: '18rem' }} >
                 <Card.Title key={user_id}>{task.title}</Card.Title>
                 <Card.Text key={user_id}>Description: {task.description}</Card.Text>

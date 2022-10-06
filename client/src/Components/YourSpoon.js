@@ -5,17 +5,11 @@ import SpoonOfTask from "./SpoonOfTask"
 
 
 
-function YourSpoon( { user }){
-    
-    const [spoons, setSpoons] = useState([])
+function YourSpoon(){
+   
         
     
     
-    
-    
-   
-    
-
 
     return(
    
@@ -30,7 +24,6 @@ function YourSpoon( { user }){
                     Add Task
                 </Button>
             </Link>
-            <SpoonOfTask task={user.tasks} spoons={user.spoons} />
         </div>    
     )
 }

@@ -30,7 +30,7 @@ function App() {
     });
   }, []);
   
-
+  console.log(user)
   function handleLogin(user){
     setUser(user)
   }
@@ -46,7 +46,7 @@ function App() {
       
       <Routes>
         <Route exact path="/" element={<Landing onLogin={handleLogin} />} /> 
-        <Route exact path="/home" element={<Home user={user} onLogout={handleLogout}/>}/>
+        <Route exact path="/home" element={<Home username={user.username} tasks={user.tasks} spoons={user.spoons} onLogout={handleLogout}/>}/>
         <Route path="/task-added" element={<Task user={user}/>}/>
         <Route path="/tasks" element={<TaskList user={user}/>}/>
         <Route path="/view-spoon" element={<YourSpoon user={user}/>}/>

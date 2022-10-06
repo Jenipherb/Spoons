@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'
   get '/tasks', to: 'tasks#show'
   get 'me/tasks_spoons', to: 'users#show_tasks_spoons'
+  get '/spoons', to: 'spoons#show'
   post '/task_added', to: 'tasks#create'
   post '/spoon_added', to: "spoons#create"
   post '/signup', to: 'users#create'
