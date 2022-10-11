@@ -5,7 +5,7 @@ import SpoonOfTask from "./SpoonOfTask"
 
 
 
-function YourSpoon(){
+function YourSpoon(onLogout){
    
         
     
@@ -22,6 +22,11 @@ function YourSpoon(){
             <Link to="/task-added">
                 <Button type="submit">
                     Add Task
+                </Button>
+            </Link>
+            <Link onClick={onLogout}>
+                <Button type="submit">
+                    Logout
                 </Button>
             </Link>
         </div>    

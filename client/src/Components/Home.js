@@ -28,7 +28,7 @@ function Home( {username, onLogout} ){
         <div>
             <h2>Hi {username}!</h2>
         
-                <YourSpoon />
+                <YourSpoon onLogout={onLogout}/>
                 <span>
                 <SpoonOfTask tasks={tasks} />
                 </span>
